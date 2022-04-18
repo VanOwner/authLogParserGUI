@@ -11,7 +11,7 @@ print(month1)
 print(day1)
 #print(day2)
 
-def dateMatch(month1, month2):
+def dateMatch(month1, day1):
 
     if month1 == 1:
         Start = "Jan"
