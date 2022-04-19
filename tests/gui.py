@@ -6,9 +6,9 @@ import tkinter
 
 from breezypythongui import END
 
-file = open("authlog.txt", "r")
+f = open("authlog.txt", "r")
 
-read_lines = file.readlines()
+read_lines = f.readlines()
 
 
 class LayoutDemo(EasyFrame):
@@ -17,34 +17,34 @@ class LayoutDemo(EasyFrame):
                            title="Programming Project 3")
         self.addLabel(font=("Verdana", 20, "bold"), text="CSCI 1523 - Search authlog.txt file",row=0, column=0, columnspan=5, sticky="NSEW")
 
-        self.addLabel(font=("Verdana", 16), text="Start Date: ",row=2, column=0, columnspan=2, sticky="NEW")
-        self.startDate = self.addTextField(text="", row=2, column=3, columnspan=1, sticky="NEW")
+        self.addLabel(font=("Verdana", 16), text="Start Date (mm/dd): ",row=2, column=0, columnspan=2, sticky="NEW")
+        self.startDateTemp = self.addTextField(text="", row=2, column=3, columnspan=1, sticky="NEW")
+        
 
-        self.addButton(text="Search", row=2, column=4, command=self.search)
+        self.addLabel(font=("Verdana", 16), text="End Date (mm/dd): ",row=2, column=0, columnspan=2, sticky="SEW")
+        self.endDateTemp = self.addTextField(text="", row=2, column=3, sticky="SEW")
 
-        self.addLabel(font=("Verdana", 16), text="End Date: ",row=2, column=0, columnspan=2, sticky="SEW")
-        self.endDate = self.addTextField(text="", row=2, column=3, sticky="SEW")
+        self.addButton(text="Search", row=2, column=4, command=self.search())
+
 
         self.addLabel(font=("Verdana", 13), text="Login Attempts",row=3, column=0, columnspan=5, sticky="EW")
 
 
     def search(self):
-        x = False
         buffer = []
         date = []
         dateList = []
-        ipList = []
-        userList = []
-        timeList = []
 
+        startDateTemp = self.startDateTemp.getText()
+        endDateTemp = self.endDateTemp.getText()
 
-        # input dates
-        month1 = int(input('Enter a month: '))
-        day1 = int(input('Enter a day: '))
+        print(startDateTemp)
+        print(endDateTemp)
+        #month1 = int(startDateTemp[0:2])
+        #day1 = int(startDateTemp[3:])
 
-        month2 = int(input('Enter a second month: '))
-        day2 = int(input('Enter a second day: '))
-
+        #month2 = int(endDateTemp[0:2])
+        #day2 = int(endDateTemp[3:])
         # converts inputted dates to datetime and then back to a formatted string
         startDate = datetime(1900,month1, day1)
 
@@ -71,8 +71,7 @@ class LayoutDemo(EasyFrame):
                     dateList.append("from user "+z.group(1))	
 
         for i in dateList:
-            print(i)
-        #print(timeList)
+            return print(i)
 
 
 

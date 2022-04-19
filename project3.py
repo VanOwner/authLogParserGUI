@@ -13,12 +13,14 @@ timeList = []
 
 
 # input dates
-month1 = int(input('Enter a month: '))
-day1 = int(input('Enter a day: '))
+startDateTemp = input('Enter a starting date (mm/dd): ')
+endDateTemp = input('Enter a ending date (mm/dd): ')
 
-month2 = int(input('Enter a second month: '))
-day2 = int(input('Enter a second day: '))
+month1 = int(startDateTemp[0:2])
+day1 = int(startDateTemp[3:])
 
+month2 = int(endDateTemp[0:2])
+day2 = int(endDateTemp[3:])
 # converts inputted dates to datetime and then back to a formatted string
 startDate = datetime(1900,month1, day1)
 
