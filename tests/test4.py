@@ -31,7 +31,8 @@ class layoutDemo(EasyFrame):
         month2 = endDateTemp[0:2]
         day2 = endDateTemp[3:]
 
-        self.outputField.setText(startDateTemp)
+        print(startDateTemp)
+        self.outputField.setText(month1)
 def main():
     layoutDemo().mainloop() 
 
