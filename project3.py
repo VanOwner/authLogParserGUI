@@ -95,11 +95,11 @@ class LayoutDemo(EasyFrame):
 
                 # Regex parse out IP and User
                 y = re.search(r"(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})",i)
-                z = re.search(r"(?<=\bfor user\s)(\w+)",i)
+                z = re.search(r"(?<=\buser\s)(\w+)",i)
 
                 # if regex finds something append everything together into dateList
-                if z and y:
-                    dateList.append("Login on "+date.strftime("%m/%d %H:%M:%S")+" from user "+z.group(1), "IP:"+y.group(1))
+                if y and z:
+                    dateList.append("Login on "+date.strftime("%m/%d %H:%M:%S")+" from user "+z.group(1)+" IP: "+y.group(1))
                 elif z:
                     dateList.append("Login on "+date.strftime("%m/%d %H:%M:%S")+" from user "+z.group(1)+" with no IP")
         
